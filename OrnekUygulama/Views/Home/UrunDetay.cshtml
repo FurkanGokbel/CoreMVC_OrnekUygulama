@@ -1,0 +1,35 @@
+﻿@model Urun
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                @* Fluid responsive tasarımı sağlıyor. thumbnail kare içine alıyor *@
+                <img src="/img/@Model.Resim" class="w-100 img-thumbnail img-fluid" alt="@Model.Ad" />
+            </div>
+            <div class="col-md-9">
+                @*@ViewBag.Cookie*@
+                @*@ViewBag.Session*@
+                <div class="card">
+                    <div class="card-header">
+                        @Model.Ad
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.Ad</h5>
+                        <p class="card-text">
+                        <strong>Kategorileri :</strong><getirKategoriAd urun-id="@Model.ID"></getirKategoriAd>
+                            <br />
+                            @Model.Fiyat
+                        </p>
+                        <a asp-action="EkleSepet" asp-controller="Home" 
+                        asp-route-id="@Model.ID"   class="btn btn-primary ml-1 float-right">Sepete Ekle</a>
+                        <a asp-action="Index" asp-controller="Home" class="btn btn-warning float-right">Geri Dön</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    @Model.Ad adlı ürünün detayı
+

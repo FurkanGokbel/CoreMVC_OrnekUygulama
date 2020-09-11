@@ -1,0 +1,20 @@
+﻿@if (TempData["bildirim"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Başarılı</strong>@TempData["bildirim"].ToString();
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-3">
+        @* ViewComponent den alıyoruz *@
+        @await Component.InvokeAsync("KategoriList");
+    </div>
+    <div class="col-md-9">
+
+        @await Component.InvokeAsync("UrunList", new { kategoriId = ViewBag.KategoriId })
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model List<Urun>
+<div class="row">
+    @* Eger hiç bir kategori yoksa işlemi *@
+    @if (Model.Count > 0)
+    {
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-3">
+                <div class="card mr-1 mb-1">
+                    <img src="/img/@item.Resim" class="card-img-top" alt="Resim YOK">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Ad</h5>
+                        <p class="card-text">@item.Ad</p>
+                        @* abc.com/Home/UrunDetay/id=1?sayfa=3 *@
+                        <a asp-action="UrunDetay" asp-controller="Home"
+                           asp-route-id="@item.ID" class="btn btn-primary float-right">Detay Göster</a>
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-info text-center">Herhangi Bir Ürün Bulunmamaktadır.</div>
+    }
+
+</div>
